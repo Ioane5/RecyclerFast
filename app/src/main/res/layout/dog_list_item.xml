@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/animal_list_horizontal_margin_half"
+    android:layout_marginTop="@dimen/animal_list_vertical_margin_half"
+    android:layout_marginEnd="@dimen/animal_list_horizontal_margin_half"
+    android:layout_marginBottom="@dimen/animal_list_vertical_margin_half">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/dog_image"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/placeholder_color"
+            android:contentDescription="@string/content_description_dog_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="W,2:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/dog_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textAppearance="?attr/textAppearanceHeadline4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dog_image"
+            tools:text="Rothweiler" />
+
+        <TextView
+            android:id="@+id/dog_barking_level_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="@string/label_barking_level"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dog_title" />
+
+        <TextView
+            android:id="@+id/dog_barking_level_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/dog_barking_level_label"
+            app:layout_constraintStart_toEndOf="@id/dog_barking_level_label"
+            tools:text="5" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

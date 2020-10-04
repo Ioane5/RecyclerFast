@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RecyclerFast</string>
+    <string name="content_description_dog_image">Image Of a Dog</string>
+    <string name="label_barking_level">Barking Level:</string>
+</resources>

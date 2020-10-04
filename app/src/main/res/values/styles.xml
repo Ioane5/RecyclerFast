@@ -1,0 +1,26 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.RecyclerFastDemo" parent="Theme.MaterialComponents.DayNight">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+
+        <item name="shapeAppearanceSmallComponent">
+            @style/ShapeAppearance.RecyclerFastDemo.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">
+            @style/ShapeAppearance.RecyclerFastDemo.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">
+            @style/ShapeAppearance.RecyclerFastDemo.LargeComponent
+        </item>
+    </style>
+
+    <style name="ShapeAppearance.RecyclerFastDemo.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent" />
+
+    <style name="ShapeAppearance.RecyclerFastDemo.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent" />
+
+    <style name="ShapeAppearance.RecyclerFastDemo.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent" />
+</resources>
