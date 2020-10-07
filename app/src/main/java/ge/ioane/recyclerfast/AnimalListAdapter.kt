@@ -10,7 +10,9 @@ import coil.load
 import ge.ioane.recyclerfast.AnimalListAdapter.AnimalListViewHolder
 import ge.ioane.recyclerfast.AnimalListAdapter.AnimalListViewHolder.*
 import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.cat_list_item.view.*
 import kotlinx.android.synthetic.main.dog_list_item.view.*
+import kotlinx.android.synthetic.main.dolphin_list_item.view.*
 
 class AnimalListAdapter :
     ListAdapter<AnimalListItemUiEntity, AnimalListViewHolder>(AnimalListDiffCallback()) {
@@ -18,6 +20,7 @@ class AnimalListAdapter :
     sealed class AnimalListViewHolder(
         override val containerView: View
     ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+
         class DogListViewHolder(view: View) : AnimalListViewHolder(view) {
             fun bind(item: AnimalListItemUiEntity.Dog) {
                 containerView.dog_image.load(item.image) {
@@ -30,14 +33,21 @@ class AnimalListAdapter :
 
         class CatListViewHolder(view: View) : AnimalListViewHolder(view) {
             fun bind(item: AnimalListItemUiEntity.Cat) {
-                TODO()
+                containerView.cat_image.load(item.image) {
+                    crossfade(true)
+                }
+                containerView.cat_title.text = item.name
+                containerView.cat_mew_level_value.text = item.mewLevel.toString()
             }
         }
 
         class DolphinListViewHolder(view: View) : AnimalListViewHolder(view) {
             fun bind(item: AnimalListItemUiEntity.Dolphin) {
-                TODO()
-            }
+                containerView.dolphin_image.load(item.image) {
+                    crossfade(true)
+                }
+                containerView.dolphin_title.text = item.name
+                containerView.dolphin_swimming_speed_value.text = item.swimmingSpeed.toString()            }
         }
     }
 
@@ -66,6 +76,14 @@ class AnimalListAdapter :
             is DogListViewHolder -> holder.bind(item as AnimalListItemUiEntity.Dog)
             is CatListViewHolder -> holder.bind(item as AnimalListItemUiEntity.Cat)
             is DolphinListViewHolder -> holder.bind(item as AnimalListItemUiEntity.Dolphin)
+        }
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        return when(getItem(position)) {
+            is AnimalListItemUiEntity.Dog -> 0
+            is AnimalListItemUiEntity.Cat -> 1
+            is AnimalListItemUiEntity.Dolphin -> 2
         }
     }
 }
