@@ -8,6 +8,6 @@ class MainActivityViewModel : ViewModel() {
     val animalListItems = MutableLiveData<List<AnimalListItemUiEntity>>()
 
     init {
-        animalListItems.value = AnimalListTestData.animals
+        animalListItems.value = AnimalListTestData.animalItems
     }
 }

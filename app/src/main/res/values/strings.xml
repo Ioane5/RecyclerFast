@@ -1,5 +1,12 @@
 <resources>
-    <string name="app_name">RecyclerFast</string>
-    <string name="content_description_dog_image">Image Of a Dog</string>
-    <string name="label_barking_level">Barking Level:</string>
+    <string name="app_name">RecyclerFast Demo</string>
+    <!-- Dog item -->
+    <string name="dog_item_barking_level_label">Barking Level:</string>
+    <string name="dog_item_image_content_description">Image of a dog</string>
+    <!-- Cat item -->
+    <string name="cat_item_mew_level_label">Mew Level:</string>
+    <string name="cat_item_image_content_description">Image of a cat</string>
+    <!-- Dolphin item -->
+    <string name="dolphin_item_swimming_speed_label">Swimming Speed:</string>
+    <string name="dolphin_item_image_content_description">Image of a dolphin</string>
 </resources>

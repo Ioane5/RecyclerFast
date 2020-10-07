@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/placeholder_color"
-            android:contentDescription="@string/content_description_dog_image"
+            android:contentDescription="@string/dog_item_image_content_description"
             android:scaleType="centerCrop"
             app:layout_constraintDimensionRatio="W,2:3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginBottom="16dp"
-            android:text="@string/label_barking_level"
+            android:text="@string/dog_item_barking_level_label"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/dog_title" />
