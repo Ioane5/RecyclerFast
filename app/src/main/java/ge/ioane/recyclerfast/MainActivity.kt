@@ -3,6 +3,7 @@ package ge.ioane.recyclerfast
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import ge.ioane.recyclerfast.adapters.standard.AnimalListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
