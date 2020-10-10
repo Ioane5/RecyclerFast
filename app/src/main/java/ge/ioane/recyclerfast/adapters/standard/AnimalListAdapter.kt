@@ -1,4 +1,4 @@
-package ge.ioane.recyclerfast
+package ge.ioane.recyclerfast.adapters.standard
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,15 +7,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import ge.ioane.recyclerfast.AnimalListAdapter.AnimalListViewHolder
-import ge.ioane.recyclerfast.AnimalListAdapter.AnimalListViewHolder.*
+import ge.ioane.recyclerfast.AnimalListItemUiEntity
+import ge.ioane.recyclerfast.R
+import ge.ioane.recyclerfast.adapters.standard.AnimalListAdapter.AnimalListViewHolder
+import ge.ioane.recyclerfast.adapters.standard.AnimalListAdapter.AnimalListViewHolder.*
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.cat_list_item.view.*
 import kotlinx.android.synthetic.main.dog_list_item.view.*
 import kotlinx.android.synthetic.main.dolphin_list_item.view.*
 
-class AnimalListAdapter :
-    ListAdapter<AnimalListItemUiEntity, AnimalListViewHolder>(AnimalListDiffCallback()) {
+class AnimalListAdapter : ListAdapter<AnimalListItemUiEntity, AnimalListViewHolder>(AnimalListDiffCallback()) {
 
     sealed class AnimalListViewHolder(
         override val containerView: View
