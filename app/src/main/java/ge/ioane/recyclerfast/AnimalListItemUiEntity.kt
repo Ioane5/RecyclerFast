@@ -1,8 +1,9 @@
 package ge.ioane.recyclerfast
 
 import android.net.Uri
+import ge.ioane.recyclerfast.adapters.typed.Equitable
 
-sealed class AnimalListItemUiEntity {
+sealed class AnimalListItemUiEntity : Equitable {
     abstract val id: String
     abstract val name: String
     abstract val image: Uri?
