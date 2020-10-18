@@ -16,7 +16,8 @@ import kotlinx.android.synthetic.main.cat_list_item.view.*
 import kotlinx.android.synthetic.main.dog_list_item.view.*
 import kotlinx.android.synthetic.main.dolphin_list_item.view.*
 
-class AnimalListAdapter : ListAdapter<AnimalListItemUiEntity, AnimalListViewHolder>(AnimalListDiffCallback()) {
+class AnimalListAdapter :
+    ListAdapter<AnimalListItemUiEntity, AnimalListViewHolder>(AnimalListDiffCallback()) {
 
     sealed class AnimalListViewHolder(
         override val containerView: View
@@ -48,7 +49,8 @@ class AnimalListAdapter : ListAdapter<AnimalListItemUiEntity, AnimalListViewHold
                     crossfade(true)
                 }
                 containerView.dolphin_title.text = item.name
-                containerView.dolphin_swimming_speed_value.text = item.swimmingSpeed.toString()            }
+                containerView.dolphin_swimming_speed_value.text = item.swimmingSpeed.toString()
+            }
         }
     }
 
@@ -81,7 +83,7 @@ class AnimalListAdapter : ListAdapter<AnimalListItemUiEntity, AnimalListViewHold
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when(getItem(position)) {
+        return when (getItem(position)) {
             is AnimalListItemUiEntity.Dog -> 0
             is AnimalListItemUiEntity.Cat -> 1
             is AnimalListItemUiEntity.Dolphin -> 2
