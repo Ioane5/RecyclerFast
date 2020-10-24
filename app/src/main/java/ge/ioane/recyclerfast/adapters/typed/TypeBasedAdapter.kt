@@ -15,13 +15,14 @@ class TypeBasedAdapter<ItemType : Equitable> :
         TypeBasedAdapterDiffUtilsCallback<ListItemUiEntity<ItemType>>()
     ) {
 
+    /**
+     * ViewType is used as LayoutResId
+     */
     override fun onCreateViewHolder(
         parent: ViewGroup,
-        viewType: Int
+        layoutResId: Int
     ): TypeBasedAdapterViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val layoutResId = viewTypeListItemMap.getValue(viewType).getLayout()
-        val view = layoutInflater.inflate(layoutResId, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(layoutResId, parent, false)
         return TypeBasedAdapterViewHolder(view)
     }
 
@@ -29,14 +30,11 @@ class TypeBasedAdapter<ItemType : Equitable> :
         getItem(position).bindLayout(holder.itemView)
     }
 
-    private val viewTypeListItemMap = mutableMapOf<Int, ListItemUiEntity<ItemType>>()
-
+    /**
+     * Return layout resId
+     */
     override fun getItemViewType(position: Int): Int {
-        val listItem = getItem(position)
-        val viewType = listItem.item::class.hashCode()
-        viewTypeListItemMap[viewType] = listItem
-
-        return viewType
+        return getItem(position).getLayout().hashCode()
     }
 
     class TypeBasedAdapterViewHolder(
