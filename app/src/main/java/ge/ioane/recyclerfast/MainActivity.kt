@@ -3,6 +3,7 @@ package ge.ioane.recyclerfast
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewbinding.ViewBinding
 import ge.ioane.recyclerfast.adapters.standard.AnimalListAdapter
 import ge.ioane.recyclerfast.adapters.typed.TypeBasedAdapter
 import ge.ioane.recyclerfast.adapters.typed.toListUiEntities
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun bindTypeBasedAdapter() {
-        val adapter = TypeBasedAdapter<AnimalListItemUiEntity>()
+        val adapter = TypeBasedAdapter<AnimalListItemUiEntity, ViewBinding>()
         animal_list_recycler.adapter = adapter
         viewModel.animalListItems.observe(this) {
             adapter.submitList(it.toListUiEntities())
