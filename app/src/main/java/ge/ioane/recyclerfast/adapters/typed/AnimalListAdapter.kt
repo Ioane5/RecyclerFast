@@ -1,47 +1,46 @@
 package ge.ioane.recyclerfast.adapters.typed
 
-import android.view.View
+import androidx.viewbinding.ViewBinding
 import coil.load
 import ge.ioane.recyclerfast.AnimalListItemUiEntity
 import ge.ioane.recyclerfast.AnimalListItemUiEntity.*
-import ge.ioane.recyclerfast.R
-import kotlinx.android.synthetic.main.cat_list_item.view.*
-import kotlinx.android.synthetic.main.dog_list_item.view.*
-import kotlinx.android.synthetic.main.dolphin_list_item.view.*
+import ge.ioane.recyclerfast.databinding.CatListItemBinding
+import ge.ioane.recyclerfast.databinding.DogListItemBinding
+import ge.ioane.recyclerfast.databinding.DolphinListItemBinding
 
-fun List<AnimalListItemUiEntity>.toListUiEntities(): List<ListItemUiEntity<AnimalListItemUiEntity>> {
+fun List<AnimalListItemUiEntity>.toListUiEntities(): List<ListItemUiEntity<AnimalListItemUiEntity, ViewBinding>> {
     return this.map { it.toListItemUiEntity() }
 }
 
-fun AnimalListItemUiEntity.toListItemUiEntity(): ListItemUiEntity<AnimalListItemUiEntity> {
+fun AnimalListItemUiEntity.toListItemUiEntity(): ListItemUiEntity<AnimalListItemUiEntity, ViewBinding> {
     return when (this) {
-        is Dog -> createListItemEntity(this, id, R.layout.dog_list_item, ::bindDogLayout)
-        is Cat -> createListItemEntity(this, id, R.layout.cat_list_item, ::bindCatLayout)
-        is Dolphin -> createListItemEntity(this, id, R.layout.dolphin_list_item, ::bindDolphinLayout)
+        is Dog -> createForViewBinding(this, id, DogListItemBinding::inflate, ::bindDogLayout)
+        is Cat -> createForViewBinding(this, id, CatListItemBinding::inflate, ::bindCatLayout)
+        is Dolphin ->createForViewBinding(this, id, DolphinListItemBinding::inflate, ::bindDolphinLayout)
     }
 }
 
-private fun bindDogLayout(view: View, item: Dog) {
-    view.dog_image.load(item.image) {
+private fun bindDogLayout(binding: DogListItemBinding, item: Dog) {
+    binding.dogImage.load(item.image) {
         crossfade(true)
     }
-    view.dog_title.text = item.name
-    view.dog_barking_level_value.text = item.barkLevel.toString()
+    binding.dogTitle.text = item.name
+    binding.dogBarkingLevelValue.text = item.barkLevel.toString()
 }
 
-private fun bindCatLayout(view: View, item: Cat) {
-    view.cat_image.load(item.image) {
+private fun bindCatLayout(binding: CatListItemBinding, item: Cat) {
+    binding.catImage.load(item.image) {
         crossfade(true)
     }
-    view.cat_title.text = item.name
-    view.cat_mew_level_value.text = item.mewLevel.toString()
+    binding.catTitle.text = item.name
+    binding.catMewLevelValue.text = item.mewLevel.toString()
 }
 
-private fun bindDolphinLayout(view: View, item: Dolphin) {
-    view.dolphin_image.load(item.image) {
+private fun bindDolphinLayout(binding: DolphinListItemBinding, item: Dolphin) {
+    binding.dolphinImage.load(item.image) {
         crossfade(true)
     }
-    view.dolphin_title.text = item.name
-    view.dolphin_swimming_speed_value.text = item.swimmingSpeed.toString()
+    binding.dolphinTitle.text = item.name
+    binding.dolphinSwimmingSpeedValue.text = item.swimmingSpeed.toString()
 }
 
